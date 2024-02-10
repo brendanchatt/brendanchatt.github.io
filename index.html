@@ -47,6 +47,12 @@
     		}
     	}
     	
+    	@media screen and (max-width: 768px) {
+    		body #headshot {
+    			width: 48% !important;
+    		}    	
+    	}
+    	
     	@keyframes fadeIn {
   			0% { opacity: 0; }
   			100% { opacity: 1; }
@@ -58,21 +64,18 @@
     	}
     	
     	.welcome {
-    		font-size: 1.5em;
-    		margin-top: 0.1em; 
+    		font-size: 1.5em; 
     	}
     </style>
   </head>
   <body onload="onloadBody()" style="background-color: #494949; padding: 2em">
   <div id="introduction">
-  	<aside style="float: right; width: 70%; padding-right: 0.2em;">
-  	<p id="greeting" class="welcome">
- 
-  	</p>
-  	</aside>
-  	<p>
-  		<img style="width: 25%" src="default-avatar-photo-placeholder-grey-600nw-2007531536.webp">
-  	</p>
+
+   	
+  		<img id="headshot" style="width: 25%; float:left; padding: 0 2em 1em" src="default-avatar-photo-placeholder-grey-600nw-2007531536.webp">
+  		
+  		<p id="greeting" class="welcome" style="width: 100%; margin: 0;"/>
+  
   	<p id="continued" class="welcome" style="visibility:hidden; display:inline-block;">
 That said, before I mention my main 'skills,' or technologies that I have the most experience with, I feel I should empasize that I try to be be a resourceful problem solver yada yada, meaning, as all developers, I learn new things every day, and am just quicker to the draw with the tools I've seasoned my career with.  I just published this site to github pages like a minute ago.. so more to come hopefully, thx
   	</p>
