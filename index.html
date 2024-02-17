@@ -5,83 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>brendanchatt</title>
-    <script async >
-	    var sleepSetTimeout_ctrl;
-
-		function sleep(ms) {
-    		return new Promise(resolve => setTimeout(resolve, ms));
-		}
-
-	    
-		var greeting = 'hello, my name is Brendan.  Thanks for spending the time to check out my little site. I don\'t have much to say but as a software developer I\'m kind of expected to have one.  I did this typewriter effect and fade in to showcase some little skills as you may have guessed.';
-	
-		async function onloadBody() {
-			typeWriter(greeting, "greeting");
-			  	  
-		  	setTimeout(()=>{
-			  	var continued = document.getElementById("continued");
-			  	
-			  	continued.onanimationend = () => {
-  document.getElementById("skills-list").style.visibility = "visible"};
-			  
-			  	continued.style.visibility = "visible";
-			  	continued.style.animation = "fadeIn 2s";
-			}, 2000);
-		}
-		async function typeWriter(txt, id) {
-			let element = document.getElementById(id);
-			for (let char of txt) {
-				element.innerHTML += char;
-				await sleep(char == '.' ? 500: 40);
-			} 
-		}
-    </script>
-    <!-- 
-    	only resused styles.  everything else inline.
-    	can be moved up here if reused.
-    -->
-    <style>
-        @media screen and (min-width: 1000px){
-        	body .welcome {
-    			font-size: 2em
-    		}
-    	}
-    	
-    	@media screen and (max-width: 768px) {
-    		body #headshot {
-    			width: 48% !important;
-    		}    	
-    	}
-    	
-    	@keyframes fadeIn {
-  			0% { opacity: 0; }
-  			100% { opacity: 1; }
-		}
-    	
-    	p {
-    		color: #D1D1D1;
-    		line-height: 1.5em
-    	}
-    	
-    	.welcome {
-    		font-size: 1.5em; 
-    	}
-    </style>
-  </head>
-  <body onload="onloadBody()" style="background-color: #494949; padding: 2em">
-  <div id="introduction">
-
-   	
-  		<img id="headshot" style="width: 25%; float:left; padding: 0 2em 1em" src="default-avatar-photo-placeholder-grey-600nw-2007531536.webp">
-  		
-  		<p id="greeting" class="welcome" style="width: 100%; margin: 0;"/>
-  
-  	<p id="continued" class="welcome" style="visibility:hidden; display:inline-block;">
-That said, before I mention my main 'skills,' or technologies that I have the most experience with, I feel I should empasize that I try to be be a resourceful problem solver yada yada, meaning, as all developers, I learn new things every day, and am just quicker to the draw with the tools I've seasoned my career with.  I just published this site to github pages like a minute ago.. so more to come hopefully, thx
-  	</p>
-  	<div id="skills-list" style="visibility:hidden">
-  		List of skills to go here, appearing after fade in animation completed.
-  	</div>
-  	</div>
+    <script defer src="script.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	</head>
+<body onload="onloadBody()">
+	<div class="row">
+		<div id="nav-container" class="column">
+			<div id="nav"> test </div>
+		</div>
+		<div id="typewriter-container" class="column" >
+			<div id="typewriter-contents">
+				<img id="headshot" src="default-avatar-photo-placeholder-grey-600nw-2007531536.webp">
+				<div id="greeting">
+					<span id="prefix">$>_&nbsp</span>
+					<span id="greeting-text"></span>
+				</div>		
+			</div>
+		</div>
+		<div id="other" class="column">
+			This is totally the other column I don't know what to do with yet.
+			<div id="skills-list" style="visibility:hidden">
+				List of skills to go here, appearing after fade in animation completed.
+			</div>
+		</div>
+	</div>
   </body>
 </html>
