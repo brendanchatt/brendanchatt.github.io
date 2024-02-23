@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color:  #d9d9d9;
+    color: black;
+    margin: 0;
+    font-family: monospace;
+}
+
+body::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+
+.part {
+   float:left;
+   height: 85vh;
+   padding: 3em 2em 3em 2em;
+   max-width: 50%;
+}
+
+/* start other column */
+#skills {
+    background-color: #929292;
+    overflow: auto;
+    flex-grow: 1;
+}
+/* end other column */
+
+#the-rest {
+    padding: 1em;
+    height: 100vh;
+    color: black;
+}
+
+/* @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+} */

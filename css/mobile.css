@@ -1,0 +1,24 @@
+@media (width <= 768px) {
+    * {
+        color: red;
+    }
+    body #headshot {
+        width: 48% !important;
+        
+    }    	
+    body {
+        overflow-x: hidden;
+    }
+    .part {
+        max-width: none !important;
+        width: 100% !important;
+        height: 60vh !important;
+    }
+
+}
+
+@media (width <= 819px) and (height <= 750px) {
+    #welcome-banner {
+        font-size: 3.5em !important;
+    }
+}
