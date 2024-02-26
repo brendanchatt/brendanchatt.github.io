@@ -1,8 +1,5 @@
 @media (width <= 768px) {
-    * {
-        color: red;
-    }
-    body #headshot {
+   #header-headshot {
         width: 48% !important;
         
     }    	
@@ -19,6 +16,6 @@
 
 @media (width <= 819px) and (height <= 750px) {
     #welcome-banner {
-        font-size: 3.5em !important;
+        font-size: 2em !important;
     }
 }

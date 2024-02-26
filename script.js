@@ -11,9 +11,10 @@ const gt = document.getElementById("greeting-text");
 
 const mobile = window.matchMedia("(max-width: 700px)")
 
+// scroll past header after 5 seconds
 setTimeout(()=>{
     window.scroll({top: document.getElementsByTagName('header')[0].offsetHeight - 50, behavior: 'smooth'});
-}, 1000);
+}, 2000);
 
 // scroll every 1000 ms to keep the bottom of the text in view
 var scrollIntervalId = setInterval(() => {
@@ -34,6 +35,6 @@ function greetingSkip() {
 
 function finishType() {
     document.getElementById('greeting-skip').style.visibility = 'hidden';
-    document.getElementById('greeting-container').style.height = '150vh';
+    document.getElementById('greeting-container').style.height = '100vh';
     gs.style.overflowY = 'scroll';
 }

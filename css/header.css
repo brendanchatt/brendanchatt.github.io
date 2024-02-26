@@ -1,37 +1,64 @@
-
+@font-face {
+    font-family: wow;
+    src: url(rewinder.ttf);
+}
 header {
     height: 45vh;
-    
     position: relative;
-    font-family: sans-serif;
+
 }
 
+@font-face {
+    font-family: game;
+    src: url('running-battle.otf');
+}
 #welcome-banner {
     z-index: 1000;
-    width: 75%;
+    width: 60%;
+    float: right;
+    padding-right: 3em;
     /* start positional */
-    margin: 0;
+    /* margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
     /* end positional */
     
-    font-family: "Honk", system-ui;
+    font-family: game;
+    /* font-family: "Honk", system-ui; 
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     font-variation-settings:
     "MORF" 15,
     "SHLN" 50;
+    */
     
-    
-    font-size: 4.5em;
+    font-size: 3.5em;
     direction:rtl;
     /* text-align-last: justify;   */ 
 }
 
+#welcome-pre {
+    display: block;
+    font-family: wow;
+    padding-left: 3em;
+}
+
+#header-headshot {
+    display: inline;
+    /* start positional */
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    left: 3em;
+    /* end positional */
+
+    width: 20em; 
+    padding-bottom: 3em;
+}
 
 /* asym triangle svg */
 .custom-shape-divider-bottom-1708639076 {
