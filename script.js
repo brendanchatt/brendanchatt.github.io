@@ -11,16 +11,16 @@ const gt = document.getElementById("greeting-text");
 
 const mobile = window.matchMedia("(max-width: 700px)")
 
-// scroll past header after 5 seconds
-setTimeout(()=>{
-    window.scroll({top: document.getElementsByClassName('part')[0].offsetHeight, behavior: 'smooth'});
-}, 2000);
+// // scroll past header after 5 seconds
+// setTimeout(()=>{
+//     window.scroll({top: document.getElementsByClassName('part')[0].offsetHeight, behavior: 'smooth'});
+// }, 2000);
 
-// scroll every 1000 ms to keep the bottom of the text in view
-var scrollIntervalId = setInterval(() => {
-    console.log(gt.offsetHeight);
-    gs.scrollTo(0, gt.offsetHeight - (gs.offsetHeight /2));
-}, 1000); 
+// // scroll every 1000 ms to keep the bottom of the text in view
+// var scrollIntervalId = setInterval(() => {
+//     console.log(gt.offsetHeight);
+//     gs.scrollTo(0, gt.offsetHeight - (gs.offsetHeight /2));
+// }, 1000); 
 
 // start the typewriter
 var cancel = typewriter(greeting, gt, () => {
