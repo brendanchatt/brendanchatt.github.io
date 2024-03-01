@@ -17,5 +17,6 @@
 @media (width <= 819px) and (height <= 750px) {
     #welcome-banner {
         font-size: 2em !important;
+        display: block;
     }
 }

@@ -13,7 +13,7 @@ const mobile = window.matchMedia("(max-width: 700px)")
 
 // scroll past header after 5 seconds
 setTimeout(()=>{
-    window.scroll({top: document.getElementsByTagName('header')[0].offsetHeight - 50, behavior: 'smooth'});
+    window.scroll({top: document.getElementsByClassName('part')[0].offsetHeight, behavior: 'smooth'});
 }, 2000);
 
 // scroll every 1000 ms to keep the bottom of the text in view
