@@ -1,43 +1,13 @@
-@media (width <= 768px) {	
-    body {
-        overflow-x: hidden;
+@media (width <= 768px){	
+    .container {
+    flex-direction: column-reverse;
     }
 
-    #pre-text {
-        font-size: 15px !important;
+    
+    @media (height <= 700px) {
+        /* On short screens we don't want fancy clips cutting out content */
+        .container[style^="clip-path"] {
+        height: 175dvh !important;
+        }
     }
-    #name {
-        bottom: 250px !important;
-        font-size: 3em !important;    
-        right:auto !important;
-    }
-
-    #stuff * {
-        left: 50% !important;
-        translate: -50% 0 !important;
-       
-    }
-    #header-section-divider {
-        clip-path: none !important;
-    }
-
-    #monitor {
-        width: 400px !important;
-        height: 400px !important;
-    }
-
-    #greeting-wrapper {
-        height: 350px !important;
-        width: 350px !important;
-    }
-
-    #greeting-container {
-        width: 300px !important;
-        top: 10px !important;
-        font-size: 20px !important;
-    }
-}
-
-@media (width <= 819px) and (height <= 750px) {
-
 }
