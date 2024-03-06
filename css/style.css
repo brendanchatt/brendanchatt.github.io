@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box;
+    box-sizing: border-box !important;
 }
 
 body {
@@ -7,22 +7,38 @@ body {
     padding:0;
     overflow-x: hidden;
 }
+.section {
+    min-height: 100svh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+}
 
 .container {
+    margin: 2em;
+    height: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
     align-content: space-evenly;
     gap: 2em;
-    padding: 1em;
-    height: 100dvh;
+}
+
+#welcome-section {
+    min-height: auto;
+    height: 90vh;
+    text-align: center;
+}
+
+#welcome-section .container {
+    column-gap: 5em;
 }
 
 #welcome {
-    text-align: center;
     font-family: "Noto Sans", sans-serif;
-
     font-style: normal;
     font-variation-settings:
       "wdth" 100;
@@ -47,20 +63,30 @@ body {
 
 }
 
-#greeting-container {
+#greeting-section {
     background-color: rgb(255, 240, 240);
-    padding: 0 3em;
+}
 
+#greeting-section .container {
+    margin: 3em;
 }
 
 #greeting {
+    text-indent: 25px;
     font-size: 1.75em;
     letter-spacing: 0.1em;
     line-height: 2em;
-    margin-top: 2em;
 }
 
 #greeting::first-letter {
     font-weight: 500;
     font-size: 3em;
+}
+
+.skill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: 250px
 }
