@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box !important;
+}
+
+body {
+    margin: 0;
+    padding:0;
+    overflow-x: hidden;
+}
+.section {
+    min-height: 100svh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+}
+
+.container {
+    margin: 2em;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+    gap: 2em;
+}
+
+#welcome-section {
+    min-height: auto;
+    height: 90vh;
+    text-align: center;
+}
+
+#welcome-section .container {
+    column-gap: 5em; /* Will apply on large screen */
+    row-gap: 0; /* Will apply on small screens due to wrap */
+}
+
+#welcome {
+    font-family: "Noto Sans", sans-serif;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+}
+
+#name {
+    font-size: 3em;
+    font-weight: 900;
+}
+
+#selfie {
+    width: 359px;
+    height: 359px;
+    margin-top: 2em;
+    object-fit: cover;
+    border-radius: 65% 35% 70% 30% / 28% 60% 40% 72%; 
+    transition: border-radius 1s ease-in-out;
+}
+
+#selfie:hover {
+    border-radius: 28% 60% 40% 72%/ 65% 35% 70% 30% ; 
+
+}
+
+#greeting-section {
+    background-color: rgb(255, 240, 240);
+}
+
+#greeting-section .container {
+    margin: 3em;
+}
+
+#greeting {
+    text-indent: 25px;
+    font-size: 1.75em;
+    letter-spacing: 0.1em;
+    line-height: 2em;
+}
+
+#greeting::first-letter {
+    font-weight: 500;
+    font-size: 3em;
+}
+
+#skill-logo-section .container {
+    gap: 5em;
+}
+
+.skill-teir-1 {
+    width: 350px
+}
+
+.skill-teir-2 {
+    width: 150px
+}

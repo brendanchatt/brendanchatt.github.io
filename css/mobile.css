@@ -1,0 +1,21 @@
+@media (width <= 768px){	
+    #welcome-section {
+        height: 95vh !important;
+    }
+
+    #welcome-section .container {
+        flex-direction: column-reverse;
+    }
+
+    
+    /* On short screens we don't want fancy clips cutting out content */
+    .section[style^="clip-path"] {
+        height: 150svh !important;
+    }
+    @media (height <= 700px) {
+
+        #greeting-section {
+            clip-path: polygon(0 100px, 95% 0, 100% 50px, 100% 100%, 0 98%);
+        }
+    }
+}
