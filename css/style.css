@@ -34,7 +34,8 @@ body {
 }
 
 #welcome-section .container {
-    column-gap: 5em;
+    column-gap: 5em; /* Will apply on large screen */
+    row-gap: 0; /* Will apply on small screens due to wrap */
 }
 
 #welcome {
@@ -83,10 +84,14 @@ body {
     font-size: 3em;
 }
 
-.skill {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 250px;
-    width: 250px
+#skill-logo-section .container {
+    gap: 5em;
+}
+
+.skill-teir-1 {
+    width: 350px
+}
+
+.skill-teir-2 {
+    width: 150px
 }
