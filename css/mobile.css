@@ -7,6 +7,14 @@
         flex-direction: column-reverse;
     }
 
+    #skill-logo-section {
+        padding-top: 150px;
+    }
+
+    #skill-logo-section .container {
+        grid-template-columns: 250px !important;
+    }
+
     
     /* On short screens we don't want fancy clips cutting out content */
     .section[style^="clip-path"] {
@@ -18,4 +26,11 @@
             clip-path: polygon(0 100px, 95% 0, 100% 50px, 100% 100%, 0 98%);
         }
     }
+}
+
+@media(768px < width <= 1250px) {
+    #skill-logo-section .container {
+        grid-template-columns: repeat(3,250px) !important;
+    }
+
 }
