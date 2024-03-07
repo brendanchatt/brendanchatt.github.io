@@ -7,8 +7,8 @@ body {
     padding:0;
     overflow-x: hidden;
 }
-.section {
-    min-height: 100svh;
+
+.flex-center {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -16,14 +16,13 @@ body {
     align-content: space-evenly;
 }
 
+.section {
+    min-height: 100vh;
+}
+
 .container {
+    max-height: 100%;
     margin: 2em;
-    height: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    align-content: space-evenly;
     gap: 2em;
 }
 
@@ -84,14 +83,35 @@ body {
     font-size: 3em;
 }
 
-#skill-logo-section .container {
+#skill-logo-section {
+    height: 120vh;
+}
+
+#skill-logo-section .container  {
+    display: grid;
+    /* Next two lines for mobile, will remove columns */
+    grid-auto-flow: row;
+    grid-auto-rows: 250px;
+    grid-template-columns: repeat(4, 250px);
+    grid-template-rows: repeat(2, 250px);
+    justify-items: center;
+    align-items: center;
     gap: 5em;
+    margin: 0 2em;
 }
 
-.skill-teir-1 {
-    width: 350px
+#skill-logo-section .container :nth-child(-n+4) {
+    width: 250px;
 }
 
-.skill-teir-2 {
-    width: 150px
+#skill-logo-section .container :nth-child(n+5) {
+    width: 150px;
+}
+
+#skill-logo-section .container :nth-child(n+6):nth-child(-n+7) {
+    width: 75px;
+}
+
+#firebase-logo {
+    width: 250px !important;
 }
