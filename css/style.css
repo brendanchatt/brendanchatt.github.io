@@ -63,22 +63,22 @@ body {
 
 }
 
-#greeting-section {
+.p-section {
     background-color: rgb(255, 240, 240);
 }
 
-#greeting-section .container {
+.p-section .container {
     margin: 3em;
 }
 
-#greeting {
+.p-section p {
     text-indent: 25px;
     font-size: 1.75em;
     letter-spacing: 0.1em;
     line-height: 2em;
 }
 
-#greeting::first-letter {
+.p-section p::first-letter {
     font-weight: 500;
     font-size: 3em;
 }
@@ -87,31 +87,22 @@ body {
     height: 120vh;
 }
 
-#skill-logo-section .container  {
+.logo-section .container  {
     display: grid;
     /* Next two lines for mobile, will remove columns */
     grid-auto-flow: row;
     grid-auto-rows: 250px;
     grid-template-columns: repeat(4, 250px);
-    grid-template-rows: repeat(2, 250px);
     justify-items: center;
     align-items: center;
     gap: 5em;
     margin: 0 2em;
 }
 
-#skill-logo-section .container :nth-child(-n+4) {
+.logo-section .container * {
     width: 250px;
 }
 
-#skill-logo-section .container :nth-child(n+5) {
-    width: 150px;
-}
-
-#skill-logo-section .container :nth-child(n+6):nth-child(-n+7) {
-    width: 75px;
-}
-
-#firebase-logo {
-    width: 250px !important;
+.w-75 {
+    width: 75px !important;
 }
