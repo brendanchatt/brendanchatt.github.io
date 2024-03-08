@@ -18,8 +18,9 @@
     
     /* On short screens we don't want fancy clips cutting out content */
     .section[style^="clip-path"] {
-        height: 150svh !important;
+        min-height: 150vh !important;
     }
+
     @media (height <= 700px) {
 
         #greeting-section {

@@ -84,7 +84,7 @@ body {
 }
 
 #skill-logo-section {
-    height: 120vh;
+    min-height: 120vh;
 }
 
 .logo-section .container  {
