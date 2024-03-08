@@ -69,18 +69,35 @@ body {
 
 .p-section .container {
     margin: 3em;
+    align-content: center;
 }
 
 .p-section p {
-    text-indent: 25px;
-    font-size: 1.75em;
+    font-size: 1.75rem;
     letter-spacing: 0.1em;
     line-height: 2em;
 }
 
-.p-section p::first-letter {
+.p-section p:nth-of-type(1) {
+    text-indent: 25px;
+}
+
+.p-section p:nth-of-type(n+2) {
+    text-indent: 10px;
+}
+
+.p-section p:nth-of-type(1):first-letter {
     font-weight: 500;
     font-size: 3em;
+}
+
+.p-section:last-of-type {
+    background-color: white !important;
+}
+
+.p-section:last-of-type p:nth-of-type(1):first-letter {
+    font-weight: 200 !important;
+    font-size: 1em;
 }
 
 #skill-logo-section {
