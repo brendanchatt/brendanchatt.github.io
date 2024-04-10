@@ -69,6 +69,7 @@ body {
 
 .p-section .container {
     margin: 3em;
+    padding: 0 10em;
     align-content: center;
 }
 
