@@ -63,37 +63,30 @@
 
             if (expandButton && expandableGrid) {
                 expandButton.addEventListener("click", () => {
-                    const isExpanded = expandableGrid.style.display === "grid";
+                    const isExpanded = expandableGrid.classList.contains('active');
+                    
                     if (isExpanded) {
                         // Collapse
                         gsap.to(expandableGrid, {
-                            height: 0,
                             opacity: 0,
-                            duration: 0.5,
-                            ease: "power2.in",
+                            duration: 0.3,
+                            ease: "power2.inOut",
                             onComplete: () => {
-                                expandableGrid.style.display = "none";
+                                expandableGrid.classList.remove('active');
                                 expandButton.textContent = "Expand to view images";
-                            },
+                            }
                         });
                     } else {
                         // Expand
-                        expandableGrid.style.display = "grid";
-                        const height = expandableGrid.scrollHeight;
-                        gsap.fromTo(
-                            expandableGrid,
-                            { 
-                                height: 0, 
-                                opacity: 0 
-                            },
-                            {
-                                height: height,
-                                opacity: 1,
-                                duration: 0.5,
-                                ease: "power2.out",
+                        expandableGrid.classList.add('active');
+                        gsap.to(expandableGrid, {
+                            opacity: 1,
+                            duration: 0.3,
+                            ease: "power2.out",
+                            onStart: () => {
+                                expandButton.textContent = "Collapse images";
                             }
-                        );
-                        expandButton.textContent = "Collapse images";
+                        });
                     }
                 });
             }
@@ -136,51 +129,70 @@
     <h2>Some of My Work</h2>
     <div class="portfolio-grid">
         <div class="portfolio-item">
-            <div class="portfolio-image">
-                <img src="https://via.placeholder.com/300x500" alt="SunSync App">
-            </div>
             <h3>SunSync App</h3>
             <p>A dynamic web application for scheduling and syncing events with solar cycles, built with modern JavaScript frameworks.</p>
             <a href="http://sunsync.app" class="portfolio-link" target="_blank">View Project</a>
         </div>
         <div class="portfolio-item">
-            <div class="portfolio-image">
-                <img src="https://via.placeholder.com/300x200" alt="E-Commerce Site">
-            </div>
             <h3>E-Commerce Site</h3>
             <p>A modern e-commerce platform with seamless user experience, featuring secure payments and responsive design.</p>
         </div>
         <div class="portfolio-item">
-            <div class="portfolio-image">
-                <img src="https://via.placeholder.com/300x200" alt="Portfolio Website">
-            </div>
             <h3>Portfolio Website</h3>
             <p>A sleek, custom-built portfolio for a creative professional, showcasing their work with elegant animations.</p>
         </div>
     </div>
     <div class="expandable-section">
         <button class="expand-button">Expand to view images</button>
-        <div class="expandable-grid" style="display: none;">
+        <div class="expandable-grid">
             <div class="portfolio-item">
                 <div class="portfolio-image">
-                    <img src="https://via.placeholder.com/300x500" alt="Additional Screenshot 1">
+                    <img src="https://via.placeholder.com/300x500" alt="SunSync Home Screen">
                 </div>
-                <h3>Screenshot 1</h3>
-                <p>A mobile app interface built with Flutter for a client project.</p>
+                <h3>SunSync Home</h3>
+                <p>The main dashboard showing upcoming solar events and schedule.</p>
             </div>
             <div class="portfolio-item">
                 <div class="portfolio-image">
-                    <img src="https://via.placeholder.com/300x500" alt="Additional Screenshot 2">
+                    <img src="https://via.placeholder.com/300x500" alt="SunSync Calendar View">
                 </div>
-                <h3>Screenshot 2</h3>
-                <p>Another Flutter app showcasing user-friendly navigation.</p>
+                <h3>Calendar View</h3>
+                <p>Interactive calendar with solar cycle overlays and event planning.</p>
             </div>
             <div class="portfolio-item">
                 <div class="portfolio-image">
-                    <img src="https://via.placeholder.com/300x500" alt="Additional Screenshot 3">
+                    <img src="https://via.placeholder.com/300x500" alt="SunSync Settings">
                 </div>
-                <h3>Screenshot 3</h3>
-                <p>A custom Flutter interface for a productivity tool.</p>
+                <h3>Settings & Preferences</h3>
+                <p>Customizable user preferences and notification settings.</p>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="https://via.placeholder.com/300x500" alt="SunSync Event Details">
+                </div>
+                <h3>Event Details</h3>
+                <p>Detailed view of solar events with timing and location information.</p>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="https://via.placeholder.com/300x500" alt="SunSync Notifications">
+                </div>
+                <h3>Notifications</h3>
+                <p>Custom notification center for upcoming events and reminders.</p>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="https://via.placeholder.com/300x500" alt="SunSync Location Services">
+                </div>
+                <h3>Location Services</h3>
+                <p>Location-based solar predictions and timezone management.</p>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="https://via.placeholder.com/300x500" alt="SunSync Analytics">
+                </div>
+                <h3>Analytics Dashboard</h3>
+                <p>Insights and statistics about solar patterns and usage.</p>
             </div>
         </div>
     </div>
@@ -208,7 +220,79 @@
         <p>© 2025 Me. All rights reserved.</p>
     </footer>
 
+<style>
+    .expandable-section {
+        margin-top: 2rem;
+    }
 
- 
+    .expandable-grid {
+        display: none;
+        gap: 20px;
+        padding: 20px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    .expandable-grid.active {
+        display: flex;
+        opacity: 1;
+        height: 600px;
+    }
+
+    .expandable-grid .portfolio-item {
+        flex: 0 0 300px;
+        margin-right: 20px;
+        height: 550px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .expandable-grid .portfolio-image {
+        height: 400px;
+        overflow: hidden;
+    }
+
+    .expandable-grid .portfolio-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .expandable-grid::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .expandable-grid::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+    }
+
+    .expandable-grid::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+    }
+
+    .expandable-grid::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    .expand-button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .expand-button:hover {
+        background-color: #0056b3;
+    }
+</style>
+
 </body>
 </html>
