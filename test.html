@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelance Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+        <!-- Scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+        <script src="script.js"></script>
+    <script>
+        // Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            function resizeIframe(iframe) {
+                // Try to get the height from the iframe content
+                iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+            }
+            
+            // GSAP Animations
+            gsap.from(".hero-title", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
+            gsap.from(".hero-subtitle", { duration: 1, y: 50, opacity: 0, delay: 0.5, ease: "power2.out" });
+            gsap.from(".cta-button", { duration: 1, scale: 0, delay: 1, ease: "back.out(1.7)" });
+
+            gsap.utils.toArray(".portfolio-item").forEach((item, i) => {
+                gsap.from(item, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: "top 80%",
+                    },
+                    duration: 1,
+                    y: 50,
+                    opacity: 0,
+                    delay: i * 0.2,
+                    ease: "power2.out",
+                });
+            });
+
+            gsap.from(".contact-form-container", {
+                scrollTrigger: {
+                    trigger: "#contact",
+                    start: "top 80%",
+                },
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                ease: "power2.out",
+            });
+
+            // Mobile Menu Toggle
+            const burger = document.querySelector(".burger");
+            const navLinks = document.querySelector(".nav-links");
+
+            burger.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+
+            // Expandable Section Toggle
+            const expandButton = document.querySelector(".expand-button");
+            const expandableGrid = document.querySelector(".expandable-grid");
+
+            if (expandButton && expandableGrid) {
+                expandButton.addEventListener("click", () => {
+                    const isExpanded = expandableGrid.style.display === "grid";
+                    if (isExpanded) {
+                        // Collapse
+                        gsap.to(expandableGrid, {
+                            height: 0,
+                            opacity: 0,
+                            duration: 0.5,
+                            ease: "power2.in",
+                            onComplete: () => {
+                                expandableGrid.style.display = "none";
+                                expandButton.textContent = "Expand to view images";
+                            },
+                        });
+                    } else {
+                        // Expand
+                        expandableGrid.style.display = "grid";
+                        const height = expandableGrid.scrollHeight;
+                        gsap.fromTo(
+                            expandableGrid,
+                            { 
+                                height: 0, 
+                                opacity: 0 
+                            },
+                            {
+                                height: height,
+                                opacity: 1,
+                                duration: 0.5,
+                                ease: "power2.out",
+                            }
+                        );
+                        expandButton.textContent = "Collapse images";
+                    }
+                });
+            }
+        });
+    </script>
+      
+</head>
+<body>
+    <!-- Navigation (unchanged) -->
+    <nav>
+        <div class="logo">Brendan Chatt</div>
+        <ul class="nav-links">
+
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (unchanged) -->
+    <section id="home" class="hero">
+        <h1 class="hero-title">Hi, I'm Brendan</h1>
+        <p class="hero-subtitle">Creating great apps & more</p>
+        <a href="#contact" class="cta-button">Hire Me</a>
+    </section>
+
+    <!-- About Section (unchanged) -->
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>I'm a freelance developer specializing in front-end development, with a strong focus on Flutter for building apps. I also handle some back-end work and have experience with Next.js, MongoDB, Firebase, and Google Cloud Platform. Earlier in my career, I worked with C# .NET on various projects. I manage projects, suggest practical ideas, and deliver what clients need, including deploying apps to the Google Play and App Stores. I have accounts under my own LLC to host these apps for clients. I'm looking to connect with clients who need reliable support for short-term or ongoing projects.</p>
+    </section>
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="portfolio">
+    <h2>Some of My Work</h2>
+    <div class="portfolio-grid">
+        <div class="portfolio-item">
+            <div class="portfolio-image">
+                <img src="https://via.placeholder.com/300x500" alt="SunSync App">
+            </div>
+            <h3>SunSync App</h3>
+            <p>A dynamic web application for scheduling and syncing events with solar cycles, built with modern JavaScript frameworks.</p>
+            <a href="http://sunsync.app" class="portfolio-link" target="_blank">View Project</a>
+        </div>
+        <div class="portfolio-item">
+            <div class="portfolio-image">
+                <img src="https://via.placeholder.com/300x200" alt="E-Commerce Site">
+            </div>
+            <h3>E-Commerce Site</h3>
+            <p>A modern e-commerce platform with seamless user experience, featuring secure payments and responsive design.</p>
+        </div>
+        <div class="portfolio-item">
+            <div class="portfolio-image">
+                <img src="https://via.placeholder.com/300x200" alt="Portfolio Website">
+            </div>
+            <h3>Portfolio Website</h3>
+            <p>A sleek, custom-built portfolio for a creative professional, showcasing their work with elegant animations.</p>
+        </div>
+    </div>
+    <div class="expandable-section">
+        <button class="expand-button">Expand to view images</button>
+        <div class="expandable-grid" style="display: none;">
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="https://via.placeholder.com/300x500" alt="Additional Screenshot 1">
+                </div>
+                <h3>Screenshot 1</h3>
+                <p>A mobile app interface built with Flutter for a client project.</p>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="https://via.placeholder.com/300x500" alt="Additional Screenshot 2">
+                </div>
+                <h3>Screenshot 2</h3>
+                <p>Another Flutter app showcasing user-friendly navigation.</p>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="https://via.placeholder.com/300x500" alt="Additional Screenshot 3">
+                </div>
+                <h3>Screenshot 3</h3>
+                <p>A custom Flutter interface for a productivity tool.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Section (unchanged) -->
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-form-container">
+            <iframe 
+                src="https://docs.google.com/forms/d/e/1FAIpQLSfscioaahukt66dn2cjToueyQnbSmehk-iMpnrf-xDXdiN4hw/viewform?embedded=true" 
+                width="640" 
+                height="1200" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0"
+                title="Contact Form"
+                
+            >Loading…</iframe>
+        </div>
+    </section>
+
+    <!-- Footer (unchanged) -->
+    <footer>
+        <p>© 2025 Me. All rights reserved.</p>
+    </footer>
+
+
+ 
+</body>
+</html>
