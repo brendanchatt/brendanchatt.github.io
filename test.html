@@ -60,6 +60,7 @@
             // Expandable Section Toggle
             const expandButton = document.querySelector(".expand-button");
             const expandableGrid = document.querySelector(".expandable-grid");
+            const aboutSection = document.querySelector("#about");
 
             if (expandButton && expandableGrid) {
                 expandButton.addEventListener("click", () => {
@@ -74,6 +75,8 @@
                             onComplete: () => {
                                 expandableGrid.classList.remove('active');
                                 expandButton.textContent = "Expand to view images";
+                                // Scroll to about section
+                                aboutSection.scrollIntoView({ behavior: 'smooth' });
                             }
                         });
                     } else {
